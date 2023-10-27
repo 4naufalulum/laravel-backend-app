@@ -82,8 +82,8 @@
                                 </div>
                                 <div class="float-right">
                                     <nav>
-                                        <ul class="pagination"> 
-                                            {{ $users->links() }}
+                                        <ul class="pagination">
+                                            {{ $users->withQueryString()->links() }}
                                         </ul>
                                     </nav>
                                 </div>

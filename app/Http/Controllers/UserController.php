@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(5);
+        // $users = User::paginate(5);
+        $users = DB::table('users')
+            ->when($request->input('search'), function ($query, $search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })->paginate(5);
         return view('pages.user.index', compact('users'));
     }
 
