@@ -9,7 +9,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 class AuthServiceProvider extends ServiceProvider
 {
     public static $permission = [
-        'dahboard' => ['superadmin', 'admin'],
+        'dashboard' => ['superadmin', 'admin'],
         'user-index' => ['admin'],
         'payment-update' => ['superadmin']
     ];
